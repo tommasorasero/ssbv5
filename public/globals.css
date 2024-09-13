@@ -1,0 +1,36 @@
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Poppins";
+  --blueBorgata: #002952;
+  --greenBorgata: #95ff29;
+}
+
+a {
+  text-decoration: inherit;
+}
+
+h1 {
+  font-size: 7em;
+  padding: 3%;
+}
+h2 {
+  font-size: 5rem;
+  background-color: var(--blueBorgata);
+  margin: 0;
+  padding: 3%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--blueBorgata);
+}
+img {
+  max-width: 100%;
+}
+p {
+  margin: 2%;
+  padding: 2%;
+}
