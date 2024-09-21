@@ -11,9 +11,11 @@
         transitions and how to apply the animation to multiple elements on a
         page.
       </p>
-      <buttonTemp :style="white"
-        ><router-link to="">Scopri {{ title }}</router-link></buttonTemp
-      >
+      <buttonTemp
+        :style="white"
+        :route="featureRoute"
+        :text="featureBText + title"
+      ></buttonTemp>
     </div>
     <slot name="image"></slot>
   </div>
@@ -36,6 +38,12 @@ export default {
       required: true,
     },
     style: {
+      type: String,
+    },
+    featureRoute: {
+      type: String,
+    },
+    featureBText: {
       type: String,
     },
   },

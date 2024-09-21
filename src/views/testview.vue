@@ -75,19 +75,25 @@
         <div id="res3">
           <p>$ {{ costo }}</p>
         </div>
-        <buttonTemp :style="'green'"> Aggiungi al carrello</buttonTemp>
+        <buttonTemp
+          :style="'green'"
+          :text="'aggiungi al carrello'"
+          :route="'/'"
+        >
+          Aggiungi al carrello</buttonTemp
+        >
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
+
 import { supabase } from "../lib/supabaseClient";
 import headerTemp from "../components/header.vue";
 import maestroTemp from "../components/maestro.vue";
 import buttonTemp from "../components/button.vue";
-import { onBeforeUnmount } from "vue";
 
 const selMaestro = ref(null);
 const maestri = ref([]);
@@ -117,6 +123,7 @@ const slots = ref([
   { slot: 14, orario: "14:00-15:00", maestri: [], selected: false },
   { slot: 15, orario: "15:00-16:00", maestri: [], selected: false },
 ]);
+
 function slotSenzaMaestro(array) {
   return !array.some((id) => id != null);
 }
@@ -132,6 +139,7 @@ const selectSlot = (slot) => {
   }
 
   console.log(slots);
+  console.log("UPDATE");
 };
 const containsMaestro = (array) => {
   return array.some((number) => maestriCom.value.includes(number));
@@ -206,8 +214,6 @@ const updateSlots = () => {
       }
     }
   }
-  //cambiare slots
-  //array oreOccupate: (ora, maestro). ciclo su ore e slot, rimuovo maestro dove slot=ora
   console.log(slots);
 };
 const loadSlots = () => {
@@ -361,6 +367,7 @@ const channel = supabase
     },
     (event) => {
       console.log(event);
+      dateChange();
     }
   )
   .subscribe();
@@ -398,6 +405,7 @@ const loadMaestri = async () => {
 #prenRight {
   flex: 0 1 20%;
 }
+
 #res1 {
   display: flex;
   flex-direction: row;

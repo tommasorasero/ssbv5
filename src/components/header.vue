@@ -7,27 +7,20 @@
     </div>
 
     <div class="right">
-      <buttonTemp :style="white">
-        <router-link to="">Login</router-link>
+      <buttonTemp :style="'white'" :route="'testview'" :text="'login'">
       </buttonTemp>
-      <buttonTemp :style="white">
-        <router-link to="testview">registra</router-link>
+      <buttonTemp :style="white" :route="'testview'" :text="'registrati'">
       </buttonTemp>
-      <buttonTemp :style="green">
-        <router-link to="">Prenota Ora</router-link>
+      <buttonTemp :style="green" :route="'testview'" :text="'prenota'">
       </buttonTemp>
-      <buttonTemp :style="plain">
-        <router-link to="team">Chi siamo</router-link></buttonTemp
-      >
-      <buttonTemp :style="plain">
-        <router-link to="">Contatti</router-link></buttonTemp
-      >
-      <buttonTemp :style="plain">
-        <router-link to="">Dove Siamo</router-link></buttonTemp
-      >
-      <buttonTemp :style="plain">
-        <router-link to="consigli">Consigli</router-link></buttonTemp
-      >
+      <buttonTemp :style="plain" :route="'testview'" :text="'contatti'">
+      </buttonTemp>
+      <buttonTemp :style="plain" :route="'testview'" :text="'dove siamo'">
+      </buttonTemp>
+      <buttonTemp :style="plain" :route="'testview'" :text="'chi siamo'">
+      </buttonTemp>
+      <buttonTemp :style="plain" :route="'testview'" :text="'login'">
+      </buttonTemp>
     </div>
   </div>
 </template>
@@ -47,6 +40,9 @@ export default {
     window.removeEventListener("scroll", this.updateScrollPosition);
   },
   methods: {
+    emitEvent() {
+      this.$emit("someEvent");
+    },
     updateScrollPosition() {
       this.scrollPosition =
         (window.scrollY || document.documentElement.scrollTop) / 5000;
@@ -66,6 +62,7 @@ export default {
       blue: "blue",
       white: "white",
       plain: "plain",
+      registrationD: false,
     };
   },
 };
@@ -73,15 +70,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-a {
-  text-decoration: none;
-  border: 0;
-  color: #ffffff;
-}
 .header > .right {
-  padding: 1%;
   margin-right: 20px;
-  width: 50%;
   display: flex;
   flex-direction: row-reverse;
 }
@@ -101,10 +91,9 @@ a {
   justify-content: space-between;
   text-decoration: none;
   flex-direction: row;
-  height: fit-content;
   top: 0;
   width: 100%;
-  height: 5, 2vw;
+  height: clamp(60px, 7rem, 150px);
 
   animation: headerFade 0.5s ease-in-out infinite;
   animation-play-state: paused;
@@ -114,46 +103,11 @@ a {
 }
 .center {
   flex-grow: 4;
-  width: 10%;
-}
-.logo {
-  height: 5vw;
-
-  padding: 10px;
-}
-a.button {
-  text-decoration: none;
-  font-family: "Poppins", sans-serif;
-  color: #002852;
-  height: fit-content;
-  font-size: 1vw;
-  border-radius: 10px;
-  text-align: center;
-  color: #ffffff;
-  margin: auto;
-
-  word-break: break-word;
 }
 
-a#prenota {
-  background-color: #95ff29;
-  box-shadow: #ffffff 0 6px 10px -5px;
-  font-family: "Poppins", sans-serif;
-  color: #002852;
-}
-a#login {
-  background-color: #ffffff;
-  box-shadow: #ffffff 0 6px 10px -5px;
-  font-family: "Poppins", sans-serif;
-  color: #002852;
-}
-
-a#prenota:hover {
-  transform: translateY(-2px);
-  box-shadow: #ffffff 0 6px 10px -5px;
-}
-a#login:hover {
-  transform: translateY(-2px);
-  box-shadow: #ffffff 0 6px 10px -5px;
+.left {
+  margin: 0;
+  height: 100%;
+  max-height: 150px;
 }
 </style>

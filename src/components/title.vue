@@ -28,14 +28,15 @@ export default {
   z-index: 2;
 }
 #borgata {
+  width: 100%;
   font-weight: 900;
-  font-size: 20vw;
+  font-size: clamp(1rem, 19.2vw, 490px);
   margin: 0;
   margin-top: -8%;
   padding: 0;
 }
 #sestriere {
-  font-size: 4vw;
+  font-size: clamp(1rem, 5vw, 120px);
   font-weight: 700;
   margin: 0;
   margin-top: 3%;
@@ -43,19 +44,20 @@ export default {
   padding: 0;
 }
 #scuola {
-  font-size: 5vw;
+  font-size: clamp(1rem, 5vw, 100px);
+
   font-weight: 800;
   margin: 0;
   margin-top: -9%;
-  margin-left: 1%;
+  margin-left: 2%;
   padding: 0;
 }
 #sci {
-  font-size: 5vw;
-  font-weight: 800;
-  margin: 0;
-  margin-top: -3%;
+  font-size: clamp(1rem, 5vw, 100px);
+  margin-top: -2.5%;
   margin-left: 3%;
+  font-weight: 800;
+
   padding: 0;
 }
 </style>

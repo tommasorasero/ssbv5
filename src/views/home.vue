@@ -1,106 +1,129 @@
 <template>
   <headerTemp></headerTemp>
-  <blocco1></blocco1>
-  <featureTemp :title="titleF1">
-    <template v-slot:image>
-      <img src="../assets/image1.png" alt="Image 1" />
-    </template>
-  </featureTemp>
-  <featureTemp :title="titleF2" :style="right">
-    <template v-slot:image>
-      <img src="../assets/image2.png" alt="Image 1" />
-    </template>
-  </featureTemp>
-  <featureTemp :title="titleF3">
-    <template v-slot:image>
-      <img src="../assets/image3.png" alt="Image 1" />
-    </template>
-  </featureTemp>
-  <div id="proposteSec">
-    <div id="barraBlu">
-      <h2 id="proposteT">Le nostre Proposte</h2>
-    </div>
-    <div id="proposteC">
-      <div class="flex-container">
-        <pro-Temp>
+  <div id="center">
+    <div id="contentBody">
+      <div>
+        <blocco1></blocco1>
+        <registrationDialogue v-if="showRegDialogue"></registrationDialogue>
+        <featureTemp
+          :title="titleF1"
+          :featureBText="'scopri '"
+          :freatureRoute="'/'"
+        >
           <template v-slot:image>
-            <img src="../assets/imageP1.png" alt="Image 1" />
+            <img src="../assets/image1.png" alt="Image 1" />
           </template>
-          <template v-slot:proposteOverlay>
-            <h3>Image 1 Title</h3>
-            <buttonTemp :style="white">
-              <router-link to="">Vai</router-link></buttonTemp
-            >
-          </template>
-        </pro-Temp>
-        <pro-Temp>
+        </featureTemp>
+        <featureTemp
+          :title="titleF2"
+          :style="right"
+          :featureBText="'scopri '"
+          :freatureRoute="'/'"
+        >
           <template v-slot:image>
-            <img src="../assets/imageP2.png" alt="Image 1" />
+            <img src="../assets/image2.png" alt="Image 1" />
           </template>
-          <template v-slot:proposteOverlay>
-            <h3>Image 2 Title</h3>
-            <buttonTemp :style="white">
-              <router-link to="">Vai</router-link></buttonTemp
-            >
-          </template>
-        </pro-Temp>
-        <pro-Temp>
+        </featureTemp>
+        <featureTemp
+          :title="titleF3"
+          :featureBText="'scopri '"
+          :freatureRoute="'/'"
+        >
           <template v-slot:image>
-            <img src="../assets/imageP3.png" alt="Image 1" />
+            <img src="../assets/image3.png" alt="Image 1" />
           </template>
-          <template v-slot:proposteOverlay>
-            <h3>Image 2 Title</h3>
-            <buttonTemp :style="white">
-              <router-link to="">Vai</router-link></buttonTemp
-            >
-          </template>
-        </pro-Temp>
+        </featureTemp>
+        <div id="proposteSec">
+          <div id="barraBlu">
+            <h2 id="proposteT">Le nostre Proposte</h2>
+          </div>
+          <div id="proposteC">
+            <div class="flex-container">
+              <pro-Temp>
+                <template v-slot:image>
+                  <img src="../assets/imageP1.png" alt="Image 1" />
+                </template>
+                <template v-slot:proposteOverlay>
+                  <h3>Image 1 Title</h3>
+                  <buttonTemp :style="white" :route="'testview'" :text="'vai'">
+                  </buttonTemp>
+                </template>
+              </pro-Temp>
+              <pro-Temp>
+                <template v-slot:image>
+                  <img src="../assets/imageP2.png" alt="Image 1" />
+                </template>
+                <template v-slot:proposteOverlay>
+                  <h3>Image 2 Title</h3>
+                  <buttonTemp
+                    :style="white"
+                    :route="'testview'"
+                    :text="'vai'"
+                  ></buttonTemp>
+                </template>
+              </pro-Temp>
+              <pro-Temp>
+                <template v-slot:image>
+                  <img src="../assets/imageP3.png" alt="Image 1" />
+                </template>
+                <template v-slot:proposteOverlay>
+                  <h3>Image 2 Title</h3>
+                  <buttonTemp
+                    :style="white"
+                    :route="'testview'"
+                    :text="'vai'"
+                  ></buttonTemp>
+                </template>
+              </pro-Temp>
+            </div>
+          </div>
+        </div>
+        <div id="offerteCont">
+          <h2 id="offtitolo">Le nostre offerte</h2>
+          <div id="offerte">
+            <offerteTemp
+              :giorno="giornoOff1"
+              :orario="orarioOff1"
+              :prezzo="prezzoOff1"
+              :nGiorni="nGiorniOff1"
+            ></offerteTemp>
+            <offerteTemp
+              :giorno="giornoOff2"
+              :orario="orarioOff2"
+              :prezzo="prezzoOff2"
+              :nGiorni="nGiorniOff2"
+            ></offerteTemp>
+          </div>
+        </div>
+        <div id="schedeContainer">
+          <schedaTemp :desc="schedeS1">
+            <template v-slot:icon>
+              <img src="../assets/resort-1-1.png" id="iconImage" />
+            </template>
+            <template v-slot:links>
+              <router-link :to="{ path: 'consigli', hash: '#assTitle' }"
+                >Assicurazione</router-link
+              ><br />
+              <router-link :to="{ path: 'consigli', hash: '#bpTitle' }"
+                >Buone pratiche per la tua lezione</router-link
+              >
+            </template>
+          </schedaTemp>
+
+          <schedaTemp :desc="schedeS2">
+            <template v-slot:icon>
+              <img src="../assets/idea-1.png" id="iconImage" />
+            </template>
+          </schedaTemp>
+
+          <schedaTemp :desc="schedeS3">
+            <template v-slot:icon>
+              <img src="../assets/faq-1-1.png" id="iconImage" />
+            </template>
+          </schedaTemp>
+        </div>
       </div>
     </div>
-  </div>
-  <div id="offerteCont">
-    <h2 id="offtitolo">Le nostre offerte</h2>
-    <div id="offerte">
-      <offerteTemp
-        :giorno="giornoOff1"
-        :orario="orarioOff1"
-        :prezzo="prezzoOff1"
-        :nGiorni="nGiorniOff1"
-      ></offerteTemp>
-      <offerteTemp
-        :giorno="giornoOff2"
-        :orario="orarioOff2"
-        :prezzo="prezzoOff2"
-        :nGiorni="nGiorniOff2"
-      ></offerteTemp>
-    </div>
-  </div>
-  <div id="schedeContainer">
-    <schedaTemp :desc="schedeS1">
-      <template v-slot:icon>
-        <img src="../assets/resort-1-1.png" id="iconImage" />
-      </template>
-      <template v-slot:links>
-        <router-link :to="{ path: 'consigli', hash: '#assTitle' }"
-          >Assicurazione</router-link
-        ><br />
-        <router-link :to="{ path: 'consigli', hash: '#bpTitle' }"
-          >Buone pratiche per la tua lezione</router-link
-        >
-      </template>
-    </schedaTemp>
-
-    <schedaTemp :desc="schedeS2">
-      <template v-slot:icon>
-        <img src="../assets/idea-1.png" id="iconImage" />
-      </template>
-    </schedaTemp>
-
-    <schedaTemp :desc="schedeS3">
-      <template v-slot:icon>
-        <img src="../assets/faq-1-1.png" id="iconImage" />
-      </template>
-    </schedaTemp>
   </div>
 </template>
 
@@ -114,6 +137,7 @@ import proTemp from "../components/proposta1.vue";
 import buttonTemp from "../components/button.vue";
 import offerteTemp from "../components/offerte.vue";
 import schedaTemp from "../components/scheda.vue";
+import registrationDialogue from "../components/registrazione.vue";
 
 export default {
   name: "App",
@@ -127,6 +151,7 @@ export default {
     buttonTemp,
     offerteTemp,
     schedaTemp,
+    registrationDialogue,
   },
   data() {
     return {
@@ -149,6 +174,7 @@ export default {
       schedeS1: "Servizi",
       schedeS2: "Consigli",
       schedeS3: "Dubbi?",
+      showRegDialogue: false,
 
       imageUrl: "../src/components/imageP1.png",
       green: "green",
@@ -164,29 +190,31 @@ export default {
   },
 
   methods: {
+    toggleRegD() {
+      console.log("dioc");
+    },
     mouseoverM: function (event) {
       event.target.classList.toggle("hovered");
     },
-    handleCustomEvent() {
+    showBMethod() {
       this.showB = !this.showB;
     },
-    mounted() {
-      // Listen to the custom event in the mounted lifecycle hook
-      this.$on("showButton", this.handleCustomEvent);
-    },
-    beforeDestroy() {
-      // Remove the event listener before the component is destroyed
-      this.$off("showButton", this.handleCustomEvent);
-    },
   },
+  beforeDestroy() {},
+  mounted() {},
 };
 </script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Six+Caps&display=swap");
-
-#proposteC {
+div#center {
+  text-align: center;
+}
+#contentBody {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 2500px;
 }
 .flex-container {
   overflow: hidden;
@@ -194,9 +222,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90vw;
-  top: 20%;
-  left: 50%;
 
   z-index: 3;
   padding: 5%;
@@ -204,6 +229,9 @@ export default {
 
 #offerteCont {
   position: relative;
+  border-radius: 10px;
+  background-color: #ffffff;
+  z-index: 4;
 }
 #schedeContainer {
   min-height: 20vw;
@@ -216,15 +244,15 @@ export default {
   z-index: 3;
 }
 h2#offtitolo {
-  background-color: white;
   color: var(--greenBorgata);
   margin: 0;
   padding: 2%;
   text-align: center;
-  z-index: 4;
+  background-color: transparent;
   position: relative;
 }
 #offerte {
+  background-color: transparent;
   display: flex;
   flex-direction: row;
   width: 100%;

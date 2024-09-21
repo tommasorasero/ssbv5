@@ -24,6 +24,7 @@ export default {
 <style scoped>
 .image-stack {
   display: grid;
+
   grid-template-columns: repeat(12, 1fr);
   position: relative;
 }

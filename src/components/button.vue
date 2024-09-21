@@ -1,6 +1,6 @@
 <template>
   <button :class="style" id="bottone">
-    <slot></slot>
+    <router-link :to="route">{{ text }}</router-link>
   </button>
 </template>
 <script>
@@ -10,6 +10,10 @@ export default {
     style: {
       type: String,
     },
+    text: {
+      type: String,
+    },
+    route: { type: String },
   },
   methods: {
     mounted() {},
@@ -19,10 +23,13 @@ export default {
 <style>
 #bottone {
   border: 0;
-  padding-left: 2%;
-  padding-right: 2%;
-  margin: 2%;
-  font-size: 1.2vw;
+  padding: 3px;
+  margin: clamp(3px, 2%, 20px);
+  font-size: 2rem;
+  text-align: center;
+}
+button > a {
+  font-size: clamp(30px, 2rem, 2vw);
 }
 
 #bottone.green,
@@ -48,6 +55,7 @@ export default {
 #bottone.plain {
   background-color: transparent;
   color: white;
+  width: 15%;
 }
 #bottone.green:hover,
 #bottone.white:hover {
@@ -57,5 +65,11 @@ export default {
 #bottone.green > a,
 #bottone.white > a {
   color: #002852;
+}
+a {
+  text-decoration: none;
+  border: 0;
+  color: #ffffff;
+  margin: 0;
 }
 </style>

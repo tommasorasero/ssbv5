@@ -35,7 +35,7 @@ div.offerte {
   display: flex;
   flex-direction: row;
   height: 20%;
-  width: 50%;
+  width: 40%;
   text-align: center;
 }
 div.numero,
@@ -62,7 +62,7 @@ div.desc {
   bottom: 100%;
   position: relative;
   height: auto;
-  font-size: 2vw;
+  font-size: 1vw;
 }
 #giorno {
   color: #95ff29;
