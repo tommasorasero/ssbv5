@@ -9,7 +9,12 @@
     <div class="right">
       <buttonTemp :style="'white'" :route="'testview'" :text="'login'">
       </buttonTemp>
-      <buttonTemp :style="white" :route="'testview'" :text="'registrati'">
+      <buttonTemp
+        :style="white"
+        :route="''"
+        :text="'registrati'"
+        @click="toggleRegOverlay"
+      >
       </buttonTemp>
       <buttonTemp :style="green" :route="'testview'" :text="'prenota'">
       </buttonTemp>
@@ -39,10 +44,8 @@ export default {
   beforeUnmount() {
     window.removeEventListener("scroll", this.updateScrollPosition);
   },
+
   methods: {
-    emitEvent() {
-      this.$emit("someEvent");
-    },
     updateScrollPosition() {
       this.scrollPosition =
         (window.scrollY || document.documentElement.scrollTop) / 5000;
@@ -50,6 +53,9 @@ export default {
         "--dynamic-background-color",
         this.scrollPosition
       );
+    },
+    toggleRegOverlay() {
+      this.$emit("toggleRegOverlay");
     },
   },
 
@@ -93,7 +99,7 @@ export default {
   flex-direction: row;
   top: 0;
   width: 100%;
-  height: clamp(60px, 7rem, 150px);
+  height: clamp(60px, 5rem, 150px);
 
   animation: headerFade 0.5s ease-in-out infinite;
   animation-play-state: paused;
@@ -107,7 +113,11 @@ export default {
 
 .left {
   margin: 0;
-  height: 100%;
-  max-height: 150px;
+  padding: 1%;
+  height: 80%;
+  max-height: 100px;
+}
+.left img {
+  height: 90%;
 }
 </style>

@@ -1,10 +1,14 @@
 <template>
-  <headerTemp></headerTemp>
+  <headerTemp @toggle-reg-overlay="toggleRegD"></headerTemp>
+  <registrationDialogue
+    v-if="showRegDialogue"
+    @toggle-reg-overlay="toggleRegD"
+  ></registrationDialogue>
   <div id="center">
     <div id="contentBody">
       <div>
         <blocco1></blocco1>
-        <registrationDialogue v-if="showRegDialogue"></registrationDialogue>
+
         <featureTemp
           :title="titleF1"
           :featureBText="'scopri '"
@@ -191,7 +195,7 @@ export default {
 
   methods: {
     toggleRegD() {
-      console.log("dioc");
+      this.showRegDialogue = !this.showRegDialogue;
     },
     mouseoverM: function (event) {
       event.target.classList.toggle("hovered");

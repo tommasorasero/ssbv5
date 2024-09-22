@@ -23,13 +23,15 @@ export default {
 <style>
 #bottone {
   border: 0;
-  padding: 3px;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
   margin: clamp(3px, 2%, 20px);
-  font-size: 2rem;
+  font-size: 2 rem;
   text-align: center;
+  margin: 1rem;
 }
 button > a {
-  font-size: clamp(30px, 2rem, 2vw);
+  font-size: clamp(10px, 1rem, 2vw);
 }
 
 #bottone.green,
@@ -38,7 +40,7 @@ button > a {
   border: 0;
   text-decoration: none;
   box-shadow: #ffffff80 0 6px 10px -5px;
-  width: 9vw;
+
   font-family: "Poppins", sans-serif;
   font-weight: 600;
 

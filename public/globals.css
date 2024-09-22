@@ -6,6 +6,7 @@
   font-family: "Poppins";
   --blueBorgata: #002952;
   --greenBorgata: #95ff29;
+  --blueBorgataLow: #00295280;
 }
 
 a {
@@ -36,4 +37,7 @@ p {
 }
 input {
   margin: 3%;
+}
+.closeIcon {
+  height: 40px;
 }
