@@ -23,12 +23,10 @@ export default {
 <style>
 #bottone {
   border: 0;
-  padding-left: 0.6rem;
-  padding-right: 0.6rem;
-  margin: clamp(3px, 2%, 20px);
+  padding: 1%;
+  margin: clamp(3px, 2%, 10px);
   font-size: 2 rem;
   text-align: center;
-  margin: 1rem;
 }
 button > a {
   font-size: clamp(10px, 1rem, 2vw);
@@ -57,7 +55,6 @@ button > a {
 #bottone.plain {
   background-color: transparent;
   color: white;
-  width: 15%;
 }
 #bottone.green:hover,
 #bottone.white:hover {
@@ -73,5 +70,13 @@ a {
   border: 0;
   color: #ffffff;
   margin: 0;
+}
+@media screen and (max-width: 860px) {
+  #bottone {
+    margin-left: 2%;
+    margin-right: 1%;
+
+    margin-bottom: 0px;
+  }
 }
 </style>

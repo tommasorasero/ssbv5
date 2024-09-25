@@ -27,6 +27,7 @@ export default {
 
   grid-template-columns: repeat(12, 1fr);
   position: relative;
+  margin-top: 1%;
 }
 .image-stack__item--top {
   grid-column: 1 / span 12;
@@ -47,5 +48,7 @@ img {
   position: fixed;
   text-align: center;
   z-index: 1;
+}
+@media screen and (max-width: 860px) {
 }
 </style>

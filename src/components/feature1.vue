@@ -6,10 +6,6 @@
         Triggering a CSS animation on scroll is a type of scroll-triggered
         animation. When people say "on scroll", what they usually mean is "when
         the element is scrolled into view". This tutorial will cover creating a
-        CSS animation from scratch and applying it when the element has been
-        scrolled into view. It will also cover the same technique using CSS
-        transitions and how to apply the animation to multiple elements on a
-        page.
       </p>
       <buttonTemp
         :style="white"
@@ -17,7 +13,9 @@
         :text="featureBText + title"
       ></buttonTemp>
     </div>
-    <slot name="image"></slot>
+    <div id="image-cont" :class="style">
+      <slot name="image"></slot>
+    </div>
   </div>
 </template>
 
@@ -56,34 +54,52 @@ export default {
 <style>
 .image-container {
   position: relative;
+  background-color: white;
   height: 100%;
   z-index: 4;
+  padding: 3%;
+  padding-bottom: 15%;
+  padding-top: 8%;
 }
 
-.image-container img {
+#image-cont img {
   display: block;
-  width: 100%;
+  width: 86%;
+  right: 0;
+  position: relative;
+  margin-left: 15%;
+  border-radius: 10px;
+  box-shadow: #00000080 0 4px 8px 0px;
 }
 
 #feature {
-  width: 40%;
+  width: 55%;
+  top: 0;
   position: absolute;
   background-color: #00295280;
-  height: 95%;
   margin: 1%;
   color: white;
   border-radius: 10px;
+  padding-bottom: 2%;
+  box-shadow: #00000080 0 4px 8px 0px;
 
   z-index: 4;
 }
 #feature > h2 {
   background-color: transparent;
+  font-size: 1.5rem;
 }
 #feature.right {
   right: 0;
 }
+#image-cont.right img {
+  margin-right: 15%;
+  margin-left: 0;
+  position: relative;
+}
 #fp,
 #ft {
   text-align: left;
+  font-size: 1rem;
 }
 </style>

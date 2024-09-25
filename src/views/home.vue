@@ -8,14 +8,14 @@
     <div id="contentBody">
       <div>
         <blocco1></blocco1>
-
+        <div id="white-gradient"></div>
         <featureTemp
           :title="titleF1"
           :featureBText="'scopri '"
           :freatureRoute="'/'"
         >
           <template v-slot:image>
-            <img src="../assets/image1.png" alt="Image 1" />
+            <img id="image" src="../assets/image1.png" alt="Image 1" />
           </template>
         </featureTemp>
         <featureTemp
@@ -25,7 +25,7 @@
           :freatureRoute="'/'"
         >
           <template v-slot:image>
-            <img src="../assets/image2.png" alt="Image 1" />
+            <img id="image" src="../assets/image2.png" alt="Image 1" />
           </template>
         </featureTemp>
         <featureTemp
@@ -34,7 +34,7 @@
           :freatureRoute="'/'"
         >
           <template v-slot:image>
-            <img src="../assets/image3.png" alt="Image 1" />
+            <img id="image" src="../assets/image3.png" alt="Image 1" />
           </template>
         </featureTemp>
         <div id="proposteSec">
@@ -215,6 +215,18 @@ export default {
 div#center {
   text-align: center;
 }
+#white-gradient {
+  width: 100%; /* Adjust the width as needed */
+  height: 250px; /* Adjust the height as needed */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1)
+  );
+  margin-top: -270px;
+  z-index: 9;
+  position: relative;
+}
 #contentBody {
   margin-left: auto;
   margin-right: auto;
@@ -296,5 +308,32 @@ h2#offtitolo {
 
 p {
   font-size: 100%;
+}
+@media screen and (max-width: 700px) {
+  .left img {
+  }
+  #white-gradient {
+    height: 120px;
+    margin-top: -130px;
+  }
+}
+@media screen and (max-width: 860px) {
+  #bottone {
+    margin-left: 2%;
+    margin-right: 1%;
+
+    margin-bottom: 0px;
+  }
+  .image-stack {
+    margin-top: 35px;
+  }
+  .image-container {
+    padding-bottom: 20%;
+    padding-top: 12%;
+  }
+  #fp,
+  #ft {
+    font-size: 0.7rem;
+  }
 }
 </style>

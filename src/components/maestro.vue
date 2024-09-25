@@ -93,7 +93,7 @@ h3,
   border-radius: 30px;
   border: #95ff29;
 }
-h3 {
+maestroCont h3 {
   position: absolute;
   bottom: 10%;
   right: 2%;

@@ -7,10 +7,8 @@
     </div>
 
     <div class="right">
-      <buttonTemp :style="'white'" :route="'testview'" :text="'login'">
-      </buttonTemp>
       <buttonTemp
-        :style="white"
+        :style="'white'"
         :route="''"
         :text="'registrati'"
         @click="toggleRegOverlay"
@@ -77,7 +75,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 .header > .right {
-  margin-right: 20px;
+  margin-right: 2%;
   display: flex;
   flex-direction: row-reverse;
 }
@@ -99,7 +97,9 @@ export default {
   flex-direction: row;
   top: 0;
   width: 100%;
-  height: clamp(60px, 5rem, 150px);
+  height: clamp(50px, 5%, 350px);
+  padding: 1%;
+  padding-bottom: 1.8%;
 
   animation: headerFade 0.5s ease-in-out infinite;
   animation-play-state: paused;
@@ -112,12 +112,10 @@ export default {
 }
 
 .left {
-  margin: 0;
-  padding: 1%;
-  height: 80%;
-  max-height: 100px;
 }
 .left img {
-  height: 90%;
+  height: 85%;
+  padding: 5%;
+  min-width: 40px; /*to be cont*/
 }
 </style>

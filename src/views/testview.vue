@@ -488,8 +488,7 @@ const loadMaestri = async () => {
 #resoconto {
   margin-left: 1vw;
 }
-#selezionaMaestro {
-}
+
 #divMaestro {
   width: 15%;
   transition: width 0.1s ease-in-out;
