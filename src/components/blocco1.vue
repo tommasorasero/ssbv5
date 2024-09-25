@@ -50,5 +50,8 @@ img {
   z-index: 1;
 }
 @media screen and (max-width: 860px) {
+  .image-stack {
+    margin-top: 35px;
+  }
 }
 </style>
